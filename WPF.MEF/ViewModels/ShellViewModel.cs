@@ -8,8 +8,8 @@ using Caliburn.Micro;
 
 namespace WPF.MEF.ViewModels
 {
-    [Export(typeof(ShellViewModel))]
-    class ShellViewModel : Conductor<IScreen>.Collection.OneActive
+    [Export(typeof(IShell))]
+    class ShellViewModel : Conductor<IScreen>.Collection.OneActive, IShell
     {
         public string Password { get; set;}
         

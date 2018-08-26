@@ -6,7 +6,6 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using Caliburn.Micro;
-using WPF.MEF.ViewModels;
 using System.Windows.Controls;
 using WPF.MEF.Helpers;
 
@@ -27,9 +26,12 @@ namespace WPF.MEF
         /// </summary>
         protected override void Configure()
         {
- 
             ConventionManager.AddElementConvention<PasswordBox>(PasswordBoxHelper.PasswordProperty, "Password", "PasswordChanged");
+            RegisterServices();
+        }
 
+        protected void RegisterServices()
+        {
             var catalog = new AggregateCatalog(
                 AssemblySource.Instance.Select(x => new AssemblyCatalog(x)).OfType<ComposablePartCatalog>()
             );
@@ -89,7 +91,7 @@ namespace WPF.MEF
         /// <param name="e"></param>
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<ShellViewModel>();
+            DisplayRootViewFor<IShell>();
         }
     }
 }
