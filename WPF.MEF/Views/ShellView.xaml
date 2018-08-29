@@ -13,5 +13,7 @@
         <TextBox x:Name="Username" Width="120" Height="25" Canvas.Left="82" Canvas.Top="88" />
         <PasswordBox x:Name="Password" Width="120" Height="25" Canvas.Left="235" Canvas.Top="88" h:PasswordBoxHelper.Attach="True" />
         <Button x:Name="Login" Content="Login" Width="65" Height="25" Canvas.Left="82" Canvas.Top="139" />
+
+        <Button x:Name="Open" Content="Open Dialog" Width="85" Height="25" Canvas.Left="180" Canvas.Top="139" />
     </Canvas>
 </Window>

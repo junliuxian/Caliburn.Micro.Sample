@@ -12,11 +12,19 @@ namespace WPF.MEF.ViewModels
     class ShellViewModel : Conductor<IScreen>.Collection.OneActive, IShell
     {
         public string Password { get; set;}
-        
+
+        [Import]
+        private IWindowManager windowManager;
+
         public void Login(string username, string password)
         {
             Console.WriteLine("Password: " + this.Password);
             Console.WriteLine(username +" "+ password);
+        }
+
+        public void Open()
+        {
+            windowManager.ShowDialog(IoC.Get<DialogViewModel>());
         }
     }
 }
